@@ -1,19 +1,10 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
-import { toast } from 'sonner';
 
 const Index = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', website: '' });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success('Заявка отправлена! Свяжемся с вами в течение 24 часов.');
-    setFormData({ name: '', email: '', website: '' });
-  };
+  const telegramLink = 'https://t.me/NikitaTechnology';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-orange-50">
@@ -28,7 +19,11 @@ const Index = () => {
             <a href="#process" className="hover:text-gradient-purple transition">Процесс</a>
             <a href="#pricing" className="hover:text-gradient-purple transition">Пакеты</a>
           </nav>
-          <Button className="bg-gradient-to-r from-gradient-purple to-gradient-magenta hover:opacity-90">
+          <Button 
+            onClick={() => window.open(telegramLink, '_blank')}
+            className="bg-gradient-to-r from-gradient-purple to-gradient-magenta hover:opacity-90"
+          >
+            <Icon name="Send" size={20} className="mr-2" />
             Связаться
           </Button>
         </div>
@@ -47,38 +42,14 @@ const Index = () => {
             снижения расходов и роста прибыли. ChatGPT, автоматизация и AI-контент — всё готово к внедрению.
           </p>
           
-          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white/60 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-purple-100 animate-scale-in">
-            <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <Input 
-                placeholder="Ваше имя" 
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                required
-                className="border-purple-200 focus:border-gradient-purple"
-              />
-              <Input 
-                type="email" 
-                placeholder="Email" 
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                required
-                className="border-purple-200 focus:border-gradient-purple"
-              />
-              <Input 
-                placeholder="Сайт (необязательно)" 
-                value={formData.website}
-                onChange={(e) => setFormData({...formData, website: e.target.value})}
-                className="border-purple-200 focus:border-gradient-purple"
-              />
-            </div>
-            <Button 
-              type="submit" 
-              size="lg" 
-              className="w-full bg-gradient-to-r from-gradient-purple via-gradient-magenta to-gradient-orange hover:opacity-90 text-white font-semibold text-lg"
-            >
-              Получить бесплатный аудит
-            </Button>
-          </form>
+          <Button 
+            onClick={() => window.open(telegramLink, '_blank')}
+            size="lg" 
+            className="bg-gradient-to-r from-gradient-purple via-gradient-magenta to-gradient-orange hover:opacity-90 text-white font-semibold text-xl px-12 py-8 h-auto animate-scale-in shadow-2xl"
+          >
+            <Icon name="Send" size={28} className="mr-3" />
+            Написать в Telegram
+          </Button>
         </div>
       </section>
 
@@ -371,38 +342,14 @@ const Index = () => {
             покажем возможности AI для вашей ниши
           </p>
 
-          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white/20 backdrop-blur-md p-8 rounded-2xl border border-white/30">
-            <div className="grid md:grid-cols-2 gap-4 mb-4">
-              <Input 
-                placeholder="Ваше имя" 
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                required
-                className="bg-white/90 border-white/30"
-              />
-              <Input 
-                type="email" 
-                placeholder="Email" 
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                required
-                className="bg-white/90 border-white/30"
-              />
-            </div>
-            <Input 
-              placeholder="Ссылка на сайт или проект (необязательно)" 
-              value={formData.website}
-              onChange={(e) => setFormData({...formData, website: e.target.value})}
-              className="mb-4 bg-white/90 border-white/30"
-            />
-            <Button 
-              type="submit" 
-              size="lg" 
-              className="w-full bg-white text-gradient-purple hover:bg-white/90 font-semibold text-lg"
-            >
-              Получить бесплатную консультацию
-            </Button>
-          </form>
+          <Button 
+            onClick={() => window.open(telegramLink, '_blank')}
+            size="lg" 
+            className="bg-white text-gradient-purple hover:bg-white/90 font-semibold text-xl px-12 py-8 h-auto shadow-2xl"
+          >
+            <Icon name="Send" size={28} className="mr-3" />
+            Написать в Telegram
+          </Button>
         </div>
       </section>
 
